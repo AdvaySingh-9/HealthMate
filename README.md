@@ -79,11 +79,9 @@ HealthMate automatically responds in the same language as the user whenever poss
 Supported content includes:
 - English
 - Hindi
-- Japanese
-- Chinese
 - French
 - German
-- Emojis
+- Basic Emojis
 - Many more languages using Noto Sans fonts
 
 ---
@@ -124,7 +122,7 @@ HealthMate/
 ├── backend/
 │   ├── model.py
 │   ├── image_clean.py
-│   └── test.py
+│   
 │
 ├── data/
 │   └── user_data.json
