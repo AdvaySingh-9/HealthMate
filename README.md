@@ -264,8 +264,16 @@ HealthMate uses:
 
 Some screenshot of HealthMate:-
 
-![Chat UI](sample/chat_ui.png)
-
+<p align="center">
+  <img src="sample/home_screen.png" width="280"/>
+  <img src="sample/chat_ui.png" width="280"/>
+  <img src="sample/report_analysis_ui.png" width="280"/>
+  <img src="sample/lifestyle_planner_ui.png" width="280"/>
+  <img src="sample/menu_screen.png" width="280"/>
+  <img src="sample/guide_screen.png" width="280"/>
+  <img src="sample/privacy_screen.png" width="280"/>
+  <img src="sample/settings_screen.png" width="280"/>
+</p>
 ---
 
 # 📄 License
