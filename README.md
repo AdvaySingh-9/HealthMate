@@ -7,7 +7,7 @@
 <p align="center">
   <b>AI-Powered Healthcare Assistant built using Gemma 4, Kivy, and Local AI Processing.</b><br><br>
 </p>
-<small align="center"><a href="https://www.kaggle.com/competitions/gemma-4-good-hackathon">A submission of The Gemma 4 Good Hackathon</a></small>
+<small align="center"><a href="https://www.kaggle.com/competitions/gemma-4-good-hackathon">A submission of The Gemma 4 Good Hackathon</a></small> <br><br>
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge">
   <img src="https://img.shields.io/badge/Kivy-Mobile_App-purple?style=for-the-badge">
