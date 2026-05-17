@@ -1,7 +1,7 @@
 # 🩺 HealthMate
 
 <p align="center">
-  <img src="samples/HealthMate_logo.png" width="180"/>
+  <img src="sample/HealthMate_logo.png" width="180"/>
 </p>
 
 <p align="center">
