@@ -1,0 +1,5 @@
+kivy
+plyer
+opencv-python
+PyPDF2
+llama-cpp-python

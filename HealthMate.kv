@@ -1,0 +1,449 @@
+
+<HomeScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        FloatLayout:
+            size_hint_y: None
+            height: 60
+            Button:
+                text: "Menu"
+                size_hint: (None, None)
+                size: (100, 45)
+                pos_hint: {"x": 0.02, "top": 0.9}
+                on_press: root.open_menu()
+
+        # add scroll view
+        ScrollView:
+            id: main_scroll
+            do_scroll_x: False
+            do_scroll_y: True
+
+            BoxLayout:
+                id: main_content
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                padding: [10, 10, 10, 100] 
+                spacing: 20
+
+                Image:
+                    id: img_logo
+                    source: "assets/HealthMate_logo.png"
+                    size_hint: (None, None)
+                    size: (200, 200)
+                    allow_stretch: True
+                    keep_ratio: True
+                    pos_hint: {"center_x": .5}
+                
+                BoxLayout:
+                    orientation: "vertical"
+                    id: suggestion_buttons
+                    size_hint_y: None
+                    height: self.minimum_height  
+                    spacing: 15  
+                    padding: [0, 20]
+
+
+                    # Suggestion Buttons
+                    Button:
+                        text: "What are the most common health issues?"
+                        size_hint: (0.8, None)
+                        height: 50
+                        pos_hint: {"center_x": .5}
+                        background_color: (0.267, 0.231, 0.910, 1)
+                        on_press: root.first_suggestion()
+                        text_size: self.width, self.height
+                        halign: "center"
+                        valign: "middle"
+
+                    Button:
+                        text: "What foods should I avoid?"
+                        size_hint: (0.8, None)
+                        height: 50
+                        pos_hint: {"center_x": .5}
+                        background_color: (0.055, 0.012, 0.906, 1)
+                        on_press: root.second_suggestion()
+                        text_size: self.width, self.height
+                        halign: "center"
+                        valign: "middle"
+
+                    Button:
+                        text: "Suggest exercises for better heart health"
+                        size_hint: (0.8, None)
+                        height: 50
+                        pos_hint: {"center_x": .5}
+                        background_color: (0.176, 0.137, 0.898, 1)
+                        on_press: root.third_suggestion()
+                        text_size: self.width, self.height
+                        halign: "center"
+                        valign: "middle"
+
+                    Button:
+                        text: "What is LDL cholesterol?"
+                        font_size: 22
+                        size_hint: (0.8, None)
+                        height: 50
+                        pos_hint: {"center_x": .5}
+                        background_color: (0.039, 0.008, 0.667, 1)
+                        padding: 10, 10
+                        on_press: root.fourth_suggestion()
+                        text_size: self.width, self.height
+                        halign: "center"
+                        valign: "middle"
+
+
+                BoxLayout:
+                    id: user_message_box
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                BoxLayout:
+                    id: ai_response
+                    font_name: "assets/NotoSans-VariableFont_wdth,wght.ttf"
+                    orientation: "vertical"
+                    size_hint: (0.9, None)
+                    height: self.minimum_height
+                    pos_hint: {"center_x": .5}
+                    opacity: 0
+                    disabled: True
+                    canvas.before:
+                        Color:
+                            rgba: 0.16, 0.16, 0.18, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [20]
+
+                    BoxLayout:
+                        id: scroll_content
+                        orientation: "vertical"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        padding: 20
+                
+
+        FloatLayout:
+            size_hint_y: None
+            height: 80
+            BoxLayout:
+                size_hint: (None, None)
+                size: (340, 60)
+                pos_hint: {"center_x": .5, "center_y": .6}
+                spacing: 10
+                padding: [10, 5]
+                canvas.before:
+                    Color:
+                        rgba: 0.16, 0.16, 0.18, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [30]
+
+                # button to add files
+                Button:
+                    text: "+"
+                    size_hint: (None, None)
+                    size: (45, 45)
+                    background_color: 0,0,0,0
+                    on_press: root.add_files()
+                    canvas.before:
+                        Color:
+                            rgba: 0.22, 0.22, 0.24, 1
+                        Ellipse:
+                            pos: self.pos
+                            size: self.size
+
+                # input box 
+                TextInput:
+                    id: user_input
+                    hint_text: "Type message..."
+                    multiline: False
+                    background_color: 0,0,0,0
+                    foreground_color: 1,1,1,1
+                    hint_text_color: 0.7, 0.7, 0.7, 1
+                    font_name: "assets/NotoSans-VariableFont_wdth,wght.ttf"
+
+                # send button
+                Button:
+                    text: "->"
+                    size_hint: (None, None)
+                    size: (45, 45)
+                    background_color: 0,0,0,0
+                    on_press: root.send_message()
+                    canvas.before:
+                        Color:
+                            rgba: 0.22, 0.22, 0.24, 1
+                        Ellipse:
+                            pos: self.pos
+                            size: self.size
+
+
+<MenuScreen>:
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                
+        orientation: "vertical"
+        padding: 10
+        spacing: 20
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: "40dp"
+            spacing: 10
+
+            # back button
+            Button:
+                text: "<-"
+                size_hint_x: None
+                width: "60dp"
+                on_press:root.back(self)  
+                
+            Label:
+                text: "Menu"
+                halign: "left"
+                valign: "middle"
+                text_size: self.size
+                color: 0,1,0,1
+
+        Button:
+            text: "Privacy"
+            on_press: root.privacy_section()
+        Button:
+            text: "How to use?"
+            on_press: root.guide_screen()
+        Button:
+            text: "Settings"
+            on_press: root.change_to_settings()
+
+<PrivacyScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 10
+        spacing: 20
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: "40dp"
+            spacing: 10
+            pos_hint: {"top": 1, "x": 0}
+
+            Button:
+                text: "<-"
+                size_hint_x: None
+                width: "60dp"
+                on_press: root.back(self)
+
+            Label:
+                text: "Your Privacy"
+                halign: "left"
+                valign: "middle"
+                text_size: self.size
+                color: 0, 1, 0, 1
+
+        ScrollView:
+            do_scroll_x: False
+            bar_width: 10
+
+            # place for privacy article
+            Label:
+                id: privacy_label
+                text: ""
+                size_hint_y: None
+                height: self.texture_size[1]
+                text_size: self.width, None
+                halign: "center"
+                valign: "middle"
+                markup: True
+
+
+<Settings>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 10
+        spacing: 20
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: "40dp"
+            spacing: 10
+            pos_hint: {"top": 1, "x": 0}
+
+            Button:
+                text: "<-"
+                size_hint_x: None
+                width: "60dp"
+                on_press: root.back(self)
+
+            Label:
+                text: "Settings"
+                halign: "left"
+                valign: "middle"
+                text_size: self.size
+                color: 0, 1, 0, 1
+
+        # user's name display
+        Label:
+            id: user_name
+            text: "NAME: PLEASE ENTER YOUR NAME BELOW"
+            color: 1,0,0,1
+            size_hint_y: None
+            height: self.texture_size[1]
+            text_size: self.width, None
+            halign: "center"
+            valign: "middle"
+            markup: True
+
+        # user's age display
+        Label:
+            id: user_age
+            text: "AGE: PLEASE ENTER YOUR AGE BELOW"
+            color: 1,0,0,1
+            size_hint_y: None
+            height: self.texture_size[1]
+            text_size: self.width, None
+            halign: "center"
+            valign: "middle"
+            markup: True
+
+        # user's gender display
+        Label:
+            id: user_gender
+            text: "GENDER: PLEASE ENTER YOUR GENDER BELOW"
+            color: 1,0,0,1
+            size_hint_y: None
+            height: self.texture_size[1]
+            text_size: self.width, None
+            halign: "center"
+            valign: "middle"
+            markup: True
+
+
+        Label:
+            text: "Enter your name below"
+
+        # input box to edit user's name
+        TextInput:
+            id: edited_user_name
+            hint_text: "Enter new name here"
+            size_hint: (None, None)
+            size: (350, 50)
+            multiline: False
+            pos_hint: {"center_x":.5} 
+
+
+        Label:
+            text: "Enter your age below"
+
+        # input box to edit user's age
+        TextInput:
+            id: edited_user_age
+            hint_text: "Enter your age here"
+            size_hint: (None, None)
+            size: (350, 50)
+            multiline: False
+            pos_hint: {"center_x":.5}
+
+        Label:
+            text: "Enter your gender below"
+            
+        # input box to edit user's gender
+        TextInput:
+            id: edited_user_gender
+            hint_text: "Enter your gender here"
+            size_hint: (None, None)
+            size: (350, 50)
+            multiline: False
+            pos_hint: {"center_x":.5}
+
+
+        Button: 
+            text: "Change"
+            on_press: root.change_user_details()
+            pos_hint: {"center_x": .5}
+            size_hint: (None, None)
+            size: (100, 50)
+
+        Label:
+            id: new_user_details
+            text: ""
+            size_hint_y: None
+            height: self.texture_size[1]
+            text_size: self.width, None
+            halign: "center"
+            valign: "middle"
+            markup: True
+
+<GuideScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 10
+        spacing: 20
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: "40dp"
+            spacing: 10
+            pos_hint: {"top": 1, "x": 0}
+
+            Button:
+                text: "<-"
+                size_hint_x: None
+                width: "60dp"
+                on_press: root.back(self)
+
+            Label:
+                text: "How to Use HealthMate"
+                halign: "left"
+                valign: "middle"
+                text_size: self.size
+                color: 0, 1, 0, 1
+
+        ScrollView:
+            do_scroll_x: False
+            bar_width: 10
+            
+            # place for how to use article
+            Label:
+                id: guide_label
+                text: ""
+                size_hint_y: None
+                height: self.texture_size[1]
+                text_size: self.width, None
+                halign: "center"
+                valign: "middle"
+                markup: True
