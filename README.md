@@ -264,6 +264,7 @@ HealthMate uses:
 
 Some screenshot of HealthMate:-
 
+![Chat UI](sample/chat_ui.png)
 
 ---
 
