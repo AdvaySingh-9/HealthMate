@@ -10,7 +10,7 @@
 <small align="center"><a href="https://www.kaggle.com/competitions/gemma-4-good-hackathon">A submission of The Gemma 4 Good Hackathon</a></small> <br><br>
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Kivy-Mobile_App-purple?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Kivy-Healthcare-App-purple?style=for-the-badge">
   <img src="https://img.shields.io/badge/Gemma_4-Multimodal-orange?style=for-the-badge">
   <img src="https://img.shields.io/badge/AI-Healthcare-green?style=for-the-badge">
 </p>
