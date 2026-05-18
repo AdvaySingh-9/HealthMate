@@ -226,7 +226,7 @@ HealthMate is designed with privacy-focused AI processing.
 ## Clone Repository
 
 ```bash
-git clone https://github.com/your-username/HealthMate.git
+git clone https://github.com/AdvaySingh-9/HealthMate.git
 cd HealthMate
 ```
 
