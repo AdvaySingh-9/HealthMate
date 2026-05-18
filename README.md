@@ -281,6 +281,14 @@ This project is licensed under the MIT License.
 
 ---
 
+# 🔗 Additional Resources
+
+- 🎥 Demo Video: [Watch Here](https://youtu.be/s48W7vJlLoU?si=GfirLSsHts1O6eQv)
+- 
+- 📄 Project Writeup: [Read Here](https://kaggle.com/competitions/gemma-4-good-hackathon/writeups/new-writeup-1775313124728)
+
+
+
 # ⚠️ Disclaimer
 
 HealthMate is an educational AI assistant and is NOT a substitute for professional medical advice, diagnosis, or treatment.
